@@ -1,9 +1,9 @@
-from keras.models import Sequential
-from keras.callbacks import EarlyStopping, ModelCheckpoint
-from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten, ZeroPadding2D, Activation
-from keras.optimizers import Adam
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+from tensorflow.keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten, ZeroPadding2D, Activation
+from tensorflow.keras.optimizers import Adam
 
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 input_size = 72, 72
 input_shape = *input_size, 3
@@ -53,7 +53,7 @@ train_generator = test_datagen.flow_from_directory(
 validation_generator = test_datagen.flow_from_directory(
     'data/validation', target_size=input_size, batch_size=32, class_mode='binary') 
 
-early_stop = EarlyStopping(monitor='val_acc', min_delta=0.0001, patience=10,
+early_stop = EarlyStopping(monitor='val_accuracy', min_delta=0.0001, patience=10,
         verbose=1, mode='auto')
 
 checkpointer = ModelCheckpoint(filepath='brass_classifier.hdf5', verbose=1, save_best_only=True)

@@ -5,8 +5,8 @@ argv[1]: path to hdf5 model to load
 argv[2]: path to image to classify
 '''
 
-from keras.models import load_model
-from keras.preprocessing.image import load_img, img_to_array, array_to_img
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import load_img, img_to_array, array_to_img
 
 import sys
 import time
