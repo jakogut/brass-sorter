@@ -34,4 +34,4 @@ else:
     pct = 100.0 - (prediction * 100.0 / 0.5)
 
 
-print(f'elapsed time: {end_time - start_time}s, prediction: {result}, certainty: {pct}%')
+print(f'elapsed time: {end_time - start_time:.2f}s, prediction: {result}, certainty: {pct:.2f}%')
