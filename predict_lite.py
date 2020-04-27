@@ -9,11 +9,14 @@ full_tf = True
 
 try:
     import tensorflow as tf
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     import tflite_runtime.interpreter as tflite
     full_tf = False
 
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
+try:
+    from tensorflow.keras.preprocessing.image import load_img, img_to_array
+except (ImportError, ModuleNotFoundError):
+    from keras_preprocessing.image import load_img, img_to_array
 
 import sys
 import time
