@@ -1,0 +1,11 @@
+FROM arm32v7/debian:buster-slim
+
+WORKDIR /srv
+
+RUN apt-get update && apt-get install -y \
+	python3-pip \
+	python3-keras-preprocessing \
+	python3-numpy \
+	python3-pillow \
+&& pip3 install --no-cache-dir \
+	https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_armv7l.whl
